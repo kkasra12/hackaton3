@@ -28,3 +28,21 @@ contract_manager("resource_contract.tz").send_contract(
 
 > ALSO we have very static front-end design [here](https://greenmarketsol.000webhostapp.com/)
 
+
+# How to run the project
+install the requirements:
+```bash
+pip install -r requirements.txt
+```
+
+install the PostgreSQL from [here](https://www.postgresql.org/download/) and run the `database.sql` file to create the database and the tables.
+also, you can run `insert_dummy_data.sql` to insert some dummy data into the database.
+
+and then run the Flask app:
+```bash
+flask run
+```
+
+or you can run the `__init__.py` file directly.
+
+then simple open 
