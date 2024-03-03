@@ -26,8 +26,8 @@ contract_manager("resource_contract.tz").send_contract(
 
 - finally, we have the `__init__.py` file which is a simple flask call to other codes.
 
-> ALSO we have very static front-end design [here](https://greenmarketsol.000webhostapp.com/)
-
+> ALSO we have very static front-end design [here](https://greenmarketsol.000webhostapp.com/) or scan this QR code:
+![QR code](static/QRcode.jpg)
 
 # How to run the project
 install the requirements:
