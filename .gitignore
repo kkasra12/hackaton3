@@ -1,0 +1,7 @@
+__pycache__/
+.vscode/
+website/
+main.py
+tmp_contract.py
+config.py
+*.zip

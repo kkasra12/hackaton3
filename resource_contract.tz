@@ -1,0 +1,74 @@
+parameter (or (or (int %set_availability) (int %set_carbon_footprint)) (or (int %set_price) (string %set_technical_compliance)));
+storage   (pair (int %availablity) (pair (int %carbon_footprint) (pair (string %city) (pair (int %id) (pair (string %item_name) (pair (int %price) (pair (string %technical_compliance) (string %unit))))))));
+code
+  {
+    UNPAIR;     # @parameter : @storage
+    IF_LEFT
+      {
+        IF_LEFT
+          {
+            # == set_availability ==
+            # assert ( # @parameter%set_availability : @storage
+            DUP;        # @parameter%set_availability : @parameter%set_availability : @storage
+            PUSH int 0; # int : @parameter%set_availability : @parameter%set_availability : @storage
+            COMPARE;    # int : @parameter%set_availability : @storage
+            LE;         # bool : @parameter%set_availability : @storage
+            IF
+              {
+                PUSH int 2; # int : @parameter%set_availability : @storage
+                DUP 2;      # @parameter%set_availability : int : @parameter%set_availability : @storage
+                COMPARE;    # int : @parameter%set_availability : @storage
+                LE;         # bool : @parameter%set_availability : @storage
+              }
+              {
+                PUSH bool False; # bool : @parameter%set_availability : @storage
+              }; # bool : @parameter%set_availability : @storage
+            IF
+              {}
+              {
+                PUSH string "availability must be between 0 and 2"; # string : @parameter%set_availability : @storage
+                FAILWITH;   # FAILED
+              }; # @parameter%set_availability : @storage
+            # self.data.availablity = new_availability # @parameter%set_availability : @storage
+            UPDATE 1;   # @storage
+          }
+          {
+            # == set_carbon_footprint ==
+            # assert new_carbon_footprint >= 0, "carbon footprint must be positive" # @parameter%set_carbon_footprint : @storage
+            DUP;        # @parameter%set_carbon_footprint : @parameter%set_carbon_footprint : @storage
+            GE;         # bool : @parameter%set_carbon_footprint : @storage
+            IF
+              {}
+              {
+                PUSH string "carbon footprint must be positive"; # string : @parameter%set_carbon_footprint : @storage
+                FAILWITH;   # FAILED
+              }; # @parameter%set_carbon_footprint : @storage
+            # self.data.carbon_footprint = new_carbon_footprint # @parameter%set_carbon_footprint : @storage
+            UPDATE 3;   # @storage
+          }; # @storage
+      }
+      {
+        IF_LEFT
+          {
+            # == set_price ==
+            # assert new_price >= 0, "price must be positive" # @parameter%set_price : @storage
+            DUP;        # @parameter%set_price : @parameter%set_price : @storage
+            GE;         # bool : @parameter%set_price : @storage
+            IF
+              {}
+              {
+                PUSH string "price must be positive"; # string : @parameter%set_price : @storage
+                FAILWITH;   # FAILED
+              }; # @parameter%set_price : @storage
+            # self.data.price = new_price # @parameter%set_price : @storage
+            UPDATE 11;  # @storage
+          }
+          {
+            # == set_technical_compliance ==
+            # self.data.technical_compliance = new_technical_compliance # @parameter%set_technical_compliance : @storage
+            UPDATE 13;  # @storage
+          }; # @storage
+      }; # @storage
+    NIL operation; # list operation : @storage
+    PAIR;       # pair (list operation) @storage
+  };

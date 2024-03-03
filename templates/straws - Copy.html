@@ -1,0 +1,174 @@
+<!-- straws.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Straws Sector</title>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .chart-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .company-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .company-card {
+            flex: 1;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .company-card:hover {
+            transform: scale(1.05);
+        }
+
+        .company-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 2em;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Straws Sector</h1>
+    </header>
+
+    <main>
+
+        <!-- Chart Container -->
+        <div class="chart-container">
+            <canvas id="costFootprintChart"></canvas>
+        </div>
+
+        <!-- Company Information -->
+        <div class="company-info">
+
+            <!-- sourcing -->
+            <div class="company-card">
+                <img src="sourcing.jpg" alt="Sourcing">
+                <h2>Sourcing</h2>
+                <p>Cost: $1.50 per kg</p>
+                <p>Carbon Footprint: 100 KgCO2eq/Kg</p>
+            </div>
+
+            <!-- distribution -->
+            <div class="company-card">
+                <img src="distribution_logo.jpg" alt="Distribution">
+                <h2>Distribution</h2>
+                <p>Cost: $2.00 per kg</p>
+                <p>Carbon Footprint: 150 KgCO2eq/Kg</p>
+            </div>
+
+            <!-- manufacturing -->
+            <div class="company-card">
+                <img src="company_c_logo.jpg" alt="Manufacturing">
+                <h2>Manufacturing</h2>
+                <p>Cost: $1.80 per kg</p>
+                <p>Carbon Footprint: 180 KgCO2eq/Kg</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        &copy; 2024 Straws Sector. All rights reserved.
+    </footer>
+
+    <script>
+        // Dummy data (replace with your actual data)
+        var companyData = {
+            labels: ['Sourcing', 'Distribution', 'Manufacturing'],
+            datasets: [{
+                data: [1.5, 2, 1.8],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                carbonFootprint: [0.2, 0.15, 0.18],
+            }]
+        };
+
+        var ctx = document.getElementById('costFootprintChart').getContext('2d');
+        var costFootprintChart = new Chart(ctx, {
+            type: 'pie',
+            data: companyData,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'bottom',
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var dataset = data.datasets[tooltipItem.datasetIndex];
+                            var costValue = dataset.data[tooltipItem.index];
+                            var footprintValue = dataset.carbonFootprint[tooltipItem.index];
+                            var label = data.labels[tooltipItem.index];
+
+                            return `${label}: Cost $${costValue.toFixed(2)} per kg, Carbon Footprint ${footprintValue.toFixed(2)} KgCO2eq/Kg`;
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

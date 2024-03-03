@@ -1,0 +1,123 @@
+<!-- engineering.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Industry</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .sectors-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .sector-card {
+            flex: 1;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .sector-card:hover {
+            transform: scale(1.05);
+        }
+
+        .sector-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 2em;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Engineering Industry</h1>
+    </header>
+
+    <main>
+
+        <div class="sectors-container">
+
+            <div class="sector-card">
+                <img src="civil_engineering.jpg" alt="Civil Engineering">
+                <h2>Civil Engineering</h2>
+                <p>Building the foundations of modern infrastructure.</p>
+            </div>
+
+            <div class="sector-card">
+                <img src="mechanical_engineering.jpg" alt="Mechanical Engineering">
+                <h2>Mechanical Engineering</h2>
+                <p>Innovating machinery and mechanical systems for efficiency.</p>
+            </div>
+
+            <div class="sector-card">
+                <img src="electrical_engineering.jpg" alt="Electrical Engineering">
+                <h2>Electrical Engineering</h2>
+                <p>Powering the world through electrical systems and innovations.</p>
+            </div>
+
+            <div class="sector-card">
+                <img src="aerospace_engineering.jpg" alt="Aerospace Engineering">
+                <h2>Aerospace Engineering</h2>
+                <p>Exploring the skies with cutting-edge aerospace technology.</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        &copy; 2024 Engineering Industry. All rights reserved.
+    </footer>
+
+</body>
+</html>
