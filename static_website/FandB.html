@@ -1,0 +1,124 @@
+<!-- food_beverages.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Beverages - Products</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2em;
+        }
+
+        .product-card {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 2em;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Food & Beverages - Products</h1>
+    </header>
+
+    <main>
+        <div class="product-container">
+
+            <div class="product-card">
+                <img src="straws.jpeg" alt="">
+                <a href="straws.html" class="industry-link">Straws</a>
+                <p>Eco-friendly and stylish straws for your beverages.</p>
+            </div>
+
+            <div class="product-card">
+                <img src="lunchbox.jpg" alt="Lunch Boxes">
+                <h3>Lunch Boxes</h3>
+                <p>Convenient and sustainable lunch boxes for your meals on the go.</p>
+            </div>
+
+            <div class="product-card">
+                <img src="cups.jpg" alt="Cups">
+                <h3>Glasses</h3>
+                <p>High-quality glasses for serving your favorite drinks in style.</p>
+            </div>
+
+            <div class="product-card">
+                <img src="cardboard plates.jpg" alt="Plates">
+                <h3>Plates</h3>
+                <p>Durable and elegant plates for your dining experience.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        &copy; 2024 Food & Beverages Products. All rights reserved.
+    </footer>
+
+</body>
+</html>
